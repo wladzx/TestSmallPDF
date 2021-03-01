@@ -19,17 +19,19 @@ class CommitsListAdapter :
     private lateinit var context: Context
 
     inner class UsersListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val repoName: TextView = itemView.findViewById(R.id.tvRepoName)
-        val repoDescription: TextView = itemView.findViewById(R.id.tvRepoDescription)
-        val tvOpenIssues: TextView = itemView.findViewById(R.id.tvOpenIssues)
+        val sha: TextView = itemView.findViewById(R.id.tvSha)
+        val message: TextView = itemView.findViewById(R.id.tvMessage)
+        val date: TextView = itemView.findViewById(R.id.tvDate)
+        val author: TextView = itemView.findViewById(R.id.tvAuthor)
     }
 
     override fun onBindViewHolder(holder: UsersListViewHolder, position: Int) {
         val githubCommitModel = getItem(position)
         githubCommitModel?.let {
-            holder.repoName.text = it.sha
-            holder.repoDescription.text = it.nodeId
-            holder.tvOpenIssues.text = it.url
+            holder.sha.text = it.sha
+            holder.message.text = it.commit.message
+            holder.date.text = it.commit.author.getCommitDateAsString()
+            holder.author.text = context.resources.getString(R.string.author, it.commit.author.name)
         }
     }
 

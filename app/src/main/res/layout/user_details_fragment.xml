@@ -33,12 +33,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/common_margin"
-            android:text="@{vm.githubUserModel.name}"
+            android:text="@{vm.githubUserModel.name == null ? String.format(@string/name, @string/unknown) : String.format(@string/name, vm.githubUserModel.name)}"
             android:textColor="@color/black"
             android:textSize="@dimen/font_medium"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/ivUserAvatar"
-            app:layout_constraintStart_toStartOf="@id/ivUserAvatar"
+            android:layout_marginStart="@dimen/common_margin"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivUserAvatar"
             tools:text="User" />
 
@@ -46,12 +46,11 @@
             android:id="@+id/tvUserCompany"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_margin"
             android:layout_marginTop="@dimen/common_margin"
-            android:layout_marginBottom="@dimen/common_margin"
-            android:text="@{vm.githubUserModel.company}"
+            android:text="@{vm.githubUserModel.company == null ? String.format(@string/company, @string/unknown) : String.format(@string/company, vm.githubUserModel.company)}"
             android:textSize="@dimen/font_medium"
-            app:layout_constraintEnd_toEndOf="@id/tvUserName"
-            app:layout_constraintStart_toStartOf="@id/tvUserName"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvUserName"
             tools:text="GitHub, inc." />
 
@@ -64,10 +63,10 @@
             android:onClick="@{() -> vm.repoButtonClicked()}"
             android:text="@string/repos"
             android:textColor="@color/purple_700"
+            android:layout_marginStart="@dimen/common_margin"
             android:textSize="@dimen/font_medium"
-            app:layout_constraintEnd_toEndOf="@+id/tvUserCompany"
             app:layout_constraintHorizontal_bias="0.32"
-            app:layout_constraintStart_toStartOf="@+id/tvUserCompany"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvUserCompany" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

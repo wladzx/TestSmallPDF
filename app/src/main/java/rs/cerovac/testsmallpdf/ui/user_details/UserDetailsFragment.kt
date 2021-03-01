@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -13,7 +14,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import rs.cerovac.testsmallpdf.R
+import rs.cerovac.testsmallpdf.data.remote.api.base.Status
 import rs.cerovac.testsmallpdf.databinding.UserDetailsFragmentBinding
+import rs.cerovac.testsmallpdf.utils.observeNotNull
 import rs.cerovac.testsmallpdf.utils.observeNullable
 
 class UserDetailsFragment : Fragment() {
@@ -31,11 +34,23 @@ class UserDetailsFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             username = UserDetailsFragmentArgs.fromBundle(it) .username
             viewModel.getUserInfoByUsername(username)
+        }
+
+        viewModel.result.observeNotNull(viewLifecycleOwner) { state ->
+            when (state.status) {
+                Status.SUCCESS -> { }
+                Status.ERROR -> {
+                    Toast.makeText(requireContext(), resources.getString(R.string.user_not_found), Toast.LENGTH_SHORT).show()
+                    findNavController().popBackStack()
+                }
+                Status.EMPTY -> { }
+                Status.LOADING -> { }
+            }
         }
     }
 

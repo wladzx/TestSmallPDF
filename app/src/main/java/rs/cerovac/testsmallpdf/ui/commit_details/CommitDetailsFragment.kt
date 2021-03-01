@@ -32,8 +32,8 @@ class CommitDetailsFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             val username: String = CommitDetailsFragmentArgs.fromBundle(it) .username
             val repoName: String = CommitDetailsFragmentArgs.fromBundle(it) .repoName

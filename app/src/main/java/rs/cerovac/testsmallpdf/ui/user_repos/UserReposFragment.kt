@@ -36,8 +36,8 @@ class UserReposFragment : Fragment(), UserReposListAdapter.ReposListAdapterInter
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             username = UserDetailsFragmentArgs.fromBundle(it).username
             viewModel.initReposListFactory(username)

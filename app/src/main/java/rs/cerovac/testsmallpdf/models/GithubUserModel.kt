@@ -37,7 +37,8 @@ data class GithubUserModel(
     @SerializedName("followers") var followers: Int,
     @SerializedName("following") var following: Int,
     @SerializedName("created_at") var createdAt: Date,
-    @SerializedName("updated_at") var updatedAt: Date
+    @SerializedName("updated_at") var updatedAt: Date,
+    @SerializedName("date") var commitDate: Date
 ) {
    @SuppressLint("SimpleDateFormat")
    fun getCreatedDateAsString(): String? {
@@ -49,5 +50,11 @@ data class GithubUserModel(
     fun getUpdatedDateAsString(): String? {
         val formatter = SimpleDateFormat("dd MMMM yyyy, hh:mm:ss");
         return formatter.format(updatedAt)
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    fun getCommitDateAsString(): String? {
+        val formatter = SimpleDateFormat("dd MMMM yyyy, hh:mm:ss");
+        return formatter.format(commitDate)
     }
 }
