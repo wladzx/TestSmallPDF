@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">TestSmallPDF</string>
+
+    <!-- Find User -->
+    <string name="find_user">Find user</string>
+    <string name="github_username">Github username</string>
+
+    <!-- User Details -->
+    <string name="user_details">User details</string>
+    <string name="repos">Repos</string>
+
+    <!--User Repos-->
+    <string name="user_repos">User repos</string>
+    <string name="msg_repos_list_is_empty">List is empty!</string>
+    <string name="msg_fetch_repos_list_error">Fetch repos list error!</string>
+
+    <!--Commit Details-->
+    <string name="commit_details">Commit details</string>
+    <string name="open_issues_count">Open issues: %s</string>
+    <string name="owner">Owner: $s</string>
+
+</resources>

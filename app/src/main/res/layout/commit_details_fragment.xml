@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable name="vm" type="rs.cerovac.testsmallpdf.ui.commit_details.CommitDetailsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCommits"
+            android:layout_width="match_parent"
+            tools:listitem="@layout/li_user_repo"
+            android:layout_height="match_parent"
+            android:visibility="@{safeUnbox(vm.isWaiting) || vm.errorMessage != null ? View.GONE : View.VISIBLE}" />
+
+        <ProgressBar
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:visibility="@{safeUnbox(vm.isWaiting) ? View.VISIBLE : View.GONE}"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@{vm.errorMessage}"
+            android:visibility="@{vm.errorMessage == null ? View.GONE : View.VISIBLE}"/>
+
+    </LinearLayout>
+</layout>

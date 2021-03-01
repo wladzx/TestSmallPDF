@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/navigation_find_user">
+
+    <fragment
+        android:id="@+id/navigation_find_user"
+        android:name="rs.cerovac.testsmallpdf.ui.find_user.FindUserFragment"
+        android:label="@string/find_user"
+        tools:layout="@layout/find_user_fragment">
+
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_user_details"
+            app:destination="@id/navigation_user_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_user_details"
+        android:name="rs.cerovac.testsmallpdf.ui.user_details.UserDetailsFragment"
+        android:label="@string/user_details"
+        tools:layout="@layout/user_details_fragment">
+
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_user_details_to_navigation_user_repos"
+            app:destination="@id/navigation_user_repos" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_user_repos"
+        android:name="rs.cerovac.testsmallpdf.ui.user_repos.UserReposFragment"
+        android:label="@string/user_repos"
+        tools:layout="@layout/user_repos_fragment">
+
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_user_repos_to_navigation_commit_details"
+            app:destination="@id/navigation_commit_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_commit_details"
+        android:name="rs.cerovac.testsmallpdf.ui.commit_details.CommitDetailsFragment"
+        android:label="@string/commit_details"
+        tools:layout="@layout/commit_details_fragment">
+        <argument
+            android:name="username"
+            app:argType="string" />
+
+        <argument
+            android:name="repoName"
+            app:argType="string" />
+    </fragment>
+</navigation>

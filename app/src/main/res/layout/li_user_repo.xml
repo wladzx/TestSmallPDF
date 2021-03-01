@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/repoItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvRepoName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_margin"
+        android:textColor="@color/purple_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Repo name" />
+
+    <TextView
+        android:id="@+id/tvRepoDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tvRepoName"
+        app:layout_constraintTop_toBottomOf="@+id/tvRepoName"
+        tools:text="Description" />
+
+    <TextView
+        android:id="@+id/tvOpenIssues"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        app:layout_constraintStart_toStartOf="@+id/tvRepoDescription"
+        app:layout_constraintTop_toBottomOf="@+id/tvRepoDescription"
+        tools:text="Open Issues: 10" />
+
+    <TextView
+        android:id="@+id/tvOwner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/tvOpenIssues"
+        app:layout_constraintTop_toBottomOf="@+id/tvOpenIssues"
+        tools:text="Owner: Username" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/common_margin"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/tvOwner" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
