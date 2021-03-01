@@ -42,7 +42,6 @@
         android:id="@+id/tvOwner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/tvOpenIssues"
         app:layout_constraintTop_toBottomOf="@+id/tvOpenIssues"
         tools:text="Owner: Username" />

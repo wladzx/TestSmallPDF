@@ -34,7 +34,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/common_margin"
             android:text="@{vm.githubUserModel.name == null ? String.format(@string/name, @string/unknown) : String.format(@string/name, vm.githubUserModel.name)}"
-            android:textColor="@color/black"
             android:textSize="@dimen/font_medium"
             android:textStyle="bold"
             android:layout_marginStart="@dimen/common_margin"
